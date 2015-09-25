@@ -35,4 +35,4 @@ WORKDIR $JAR_HOME
 
 EXPOSE 8080 22 6379
 
-CMD ["java -jar"，"j360-simple-1.3.0.BUILD-SNAPSHOT.jar"，"/usr/local/bin/redis-server"]
+CMD /usr/local/bin/redis-server && java -jar j360-simple-1.3.0.BUILD-SNAPSHOT.jar

@@ -14,5 +14,23 @@ docker-simplewar/Dockerfile
 - **j360-standard需要redis服务器**
 docker-standard/Dockerfile
 
+====================
+发布执行
 
+- 服务器安装git
+- git clone https://github.com/xuminwlt/j360-docker.git
+- cd j360-docker
+- ls
+- docker images
+- **执行redis，用于测试redis用**
+- docker run -d -p 6379:6379 redis/j360 
+- cd docker-redis
+- docker build -t redis/j360 .
+- docker run -d -p 6379:6379 redis/j360 
+
+- **执行simple**
+- cd docker-simple
+- docker build -t simple/j360 .
+- docker run -d -p 8080:8000 simple/j360
+ 
 

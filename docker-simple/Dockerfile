@@ -23,8 +23,9 @@ ENV PATH $PATH:$JAVA_HOME/bin
 #j360-boot.jar
 ADD j360-simple-1.3.0.BUILD-SNAPSHOT.jar /usr/local/j360
 ENV JAR_HOME /usr/local/j360
-WORKDIR $JAR_HOME
+#WORKDIR $JAR_HOME
+RUN cd /usr/local/j360
 
 EXPOSE 8080 22
 
-CMD ["java -jar"，"j360-simple-1.3.0.BUILD-SNAPSHOT.jar"]
+CMD ["java"," -jar","j360-simple-1.3.0.BUILD-SNAPSHOT.jar"]
