@@ -2,7 +2,7 @@ j360-docker
 ==============
 j360系列集成spring-docker
 使用docker集成j360-boot.jar/j360-boot.war
-jdk1.7-x64因为太大不上传到soft，自行下载放到该目录
+jdk1.7-x64因为太大不上传，自行下载放到Dockerfile同目录下
 
 ##j360-simple##
 docker-simple/Dockerfile
@@ -32,5 +32,6 @@ docker-standard/Dockerfile
 - cd docker-simple
 - docker build -t simple/j360 .
 - docker run -d -p 8080:8000 simple/j360
- 
+- curl http://192.168.247.128:32770/hello -> hello
+
 

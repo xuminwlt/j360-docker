@@ -14,25 +14,24 @@ RUN yum install -y curl wget tar bzip2 unzip vim-enhanced passwd sudo yum-utils 
     yum clean all
 
 #java配置
+RUN mkdir /usr/local/j360
 ADD ../soft/jdk-7u80-linux-x64.tar.gz /usr/local/j360
 ENV JAVA_HOME /usr/local/j360/jdk1.7.0_80
 ENV CLASSPATH $JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ENV PATH $PATH:$JAVA_HOME/bin
 
 # install redis
-ADD ../soft/redis-3.0.4.gz /usr/local/j360
+ADD ../soft/redis-3.0.4.gz /usr/local
 RUN yum install -y curl tar make gcc && \
-    cd /usr/local/j360 && \
+    cd /usr/local && \
     tar xf redis-3.0.4.gz && \
     cd redis-3.0.4 && \
     make && \
     make install
 
 #j360-boot.jar
-ADD j360-standard-1.3.0.BUILD-SNAPSHOT.jar /usr/local/j360
-ENV JAR_HOME /usr/local/j360
-WORKDIR $JAR_HOME
+ADD j360-standard-1.3.0.BUILD-SNAPSHOT.jar /usr/local/
 
 EXPOSE 8080 22 6379
 
-CMD /usr/local/bin/redis-server && java -jar j360-simple-1.3.0.BUILD-SNAPSHOT.jar
+CMD /usr/local/bin/redis-server && java -jar /usr/local/j360-simple-1.3.0.BUILD-SNAPSHOT.jar
