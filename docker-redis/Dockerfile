@@ -11,7 +11,7 @@ ENV TZ "Asia/Shanghai"
 ENV TERM xterm
 
 # install redis
-ADD ../soft/redis-3.0.4.gz /usr/local/j360
+ADD redis-3.0.4.gz /usr/local/j360
 RUN yum install -y curl tar make gcc && \
     cd /usr/local/j360 && \
     tar xf redis-3.0.4.gz && \
